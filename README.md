@@ -1,9 +1,13 @@
 # Robust EEG-based Word Decoding under Subject Shift and Channel Loss
 
-This repository contains the code and result tables for my MSc dissertation on predicting word categories from EEG recorded during natural reading. The experiments evaluate how well the models generalise to unseen participants and how performance changes when EEG channels are missing.
+This repository contains the code and result tables for my MSc dissertation on
+predicting word categories from EEG recorded during natural reading. The
+experiments evaluate how well the models generalise to unseen participants and
+how performance changes when EEG channels are missing.
 
-Start with the [reproduction guide](documentation/REPRODUCTION_GUIDE.txt) for environment setup, data
-paths and instructions for running the experiments on CSF3.
+The [reproduction guide](documentation/REPRODUCTION_GUIDE.md) explains how to set
+up the environment, locate the data and run the experiments on CSF3. The
+[technical appendix](documentation/TECHNICAL_APPENDIX.md) summarises the methods.
 
 ## Files and folders
 
@@ -89,5 +93,6 @@ figures and checks the repository.
 
 The experiments use ZuCo 2.0 Task 1 natural reading. Download the source data
 from the [official release](https://osf.io/2urht/). The raw data and extracted EEG arrays are not
-included here. See [data availability](documentation/DATA_AVAILABILITY.txt) for data access
-details and the [reproduction guide](documentation/REPRODUCTION_GUIDE.txt) for the required paths.
+included here. See [data availability](documentation/DATA_AVAILABILITY.md) for
+access details and the [reproduction guide](documentation/REPRODUCTION_GUIDE.md)
+for the required paths.
