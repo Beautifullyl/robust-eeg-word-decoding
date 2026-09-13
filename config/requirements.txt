@@ -1,0 +1,10 @@
+numpy
+scipy
+scikit-learn
+pandas
+h5py
+pillow
+tqdm
+nltk==3.10.2
+torch==2.13.0
+python-docx
