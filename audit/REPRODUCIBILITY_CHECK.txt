@@ -1,5 +1,0 @@
-REPRODUCIBILITY CHECK
-Python files checked: 32
-Job files checked: 29
-Required result tables checked: 16
-Status: PASSED
