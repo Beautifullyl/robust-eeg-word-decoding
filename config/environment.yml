@@ -1,0 +1,16 @@
+name: eeg-word-reproduction
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - scikit-learn
+  - pandas
+  - h5py
+  - pillow
+  - tqdm
+  - pip:
+      - nltk==3.10.2
+      - torch==2.13.0
