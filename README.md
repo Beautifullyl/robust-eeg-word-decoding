@@ -1,8 +1,6 @@
 # Robust EEG-based Word Decoding under Subject Shift and Channel Loss
 
-Code and result tables for an MSc dissertation on predicting word categories
-from EEG recorded during natural reading. The experiments test performance
-on unseen readers and with missing EEG channels.
+This repository contains the code and result tables for my MSc dissertation on predicting word categories from EEG recorded during natural reading. The experiments evaluate how well the models generalise to unseen participants and how performance changes when EEG channels are missing.
 
 Start with the [reproduction guide](documentation/REPRODUCTION_GUIDE.txt) for environment setup, data
 paths and instructions for running the experiments on CSF3.
