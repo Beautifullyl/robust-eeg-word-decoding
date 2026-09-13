@@ -1,0 +1,79 @@
+REPRODUCTION GUIDE
+
+1. Obtain the data
+
+Download the official ZuCo 2.0 release from https://osf.io/2urht/. The main analysis uses Task 1 natural reading Matlab files. Source data are not included in this repository.
+
+2. Prepare the repository on CSF3
+
+Place the repository in scratch storage. The expected layout is:
+
+    <repository>/code
+    <repository>/config
+    <repository>/results
+    <repository>/experiment_outputs
+    <repository>/data/processed
+
+Set these environment variables before submission:
+
+    PROJECT_DIR=<absolute path to this repository>
+    EEG_ENV_DIR=<absolute path to the Python environment>
+    ZUCO2_ROOT=<absolute path to the ZuCo 2.0 root>
+    ZUCO2_MAT_DIR=<absolute path to task1 - NR/Matlab files>
+
+3. Install the environment
+
+Create the named environment from config/environment.yml. The equivalent package list is also provided in config/requirements.txt. The CSF jobs expect the Miniforge module and a CUDA-capable PyTorch installation for GPU workflows.
+
+    conda env create -f config/environment.yml
+
+4. Create the output layout
+
+    python code/run_pipeline.py prepare
+
+This creates one directory for each numbered workflow. Every workflow directory contains:
+
+    logs
+    results
+    analysis
+    scripts
+    manifest
+
+5. Validate and extract the data
+
+The complete formal workflow submits validation and extraction before model fitting:
+
+    python code/run_pipeline.py submit all
+
+For a shorter check, submit an individual smoke test after the required extraction has completed:
+
+    python code/run_pipeline.py submit workflow15 --mode smoke
+    python code/run_pipeline.py submit workflow16 --mode smoke
+
+6. Recreate subject-level summaries
+
+The formal dependency graph submits analysis jobs after Workflows 12 to 16. Workflow 17 then combines their CSV files with the summaries from Workflows 06 to 11 and writes the report tables to results/final_subject_level.
+
+To rebuild the tables after all formal outputs already exist, run:
+
+    python code/analysis/build_report_outputs.py
+
+7. Recreate figures
+
+Workflow 17 creates the figures automatically. They can also be rebuilt after the CSV summaries are available by running:
+
+    python code/analysis/create_final_report_figures.py
+    python code/analysis/create_non_eeg_control_figure.py
+
+Figures are written to results/figures.
+
+8. Verify the repository
+
+    python code/verify_repository.py
+    python code/analysis/build_file_manifest.py
+
+The verifier checks Python syntax, local dependencies, referenced job files, required result tables, legacy path assumptions and personal absolute paths.
+
+NOTES
+
+Workflow 16 uses 512 x 105 for both fixation representations with the same EEGNet architecture and no interpolation. In Workflow 15, each sampled random mask is fixed across all test words for a held-out participant.

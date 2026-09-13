@@ -1,0 +1,14 @@
+workflow,historical_id,status,role,input,evaluation,primary_code,reported_evidence
+01,00,complete,environment setup,repository configuration,not applicable,config/environment.yml,not applicable
+02,02,complete,data integrity,official ZuCo 2.0 release,complete inventory audit,code/data_preparation/validate_zuco2_complete_inventory.py,technical appendix
+05,25,complete,main extraction,all valid fixations 512x105,not applicable,code/data_preparation/extract_zuco2_diagnostic_all_fixations_concat.py,technical appendix
+06,25bc,complete,main EEGNet baseline,all fixations 512x105,LOSO,code/models/run_eegnet_diagnostic_all_fixations_classification.py,results/final_subject_level/main_no_dropout.csv
+07,27,complete,model comparison,all fixations 512x105,LOSO,code/models/run_tcn_diagnostic_all_fixations_classification.py,results/final_subject_level/paired_comparisons.csv
+08,28,complete,linear and diagnostic splits,all fixations 512x105,LOSO; subject-dependent; mixed-subject,code/models/run_linear_diagnostic_classification.py,results/final_subject_level/main_no_dropout.csv
+09,31,complete,structured channel loss,all fixations 512x105,LOSO fixed blocks versus matched random masks,code/models/run_eegnet_official_pair_block_dropout_all_fixations.py,results/final_subject_level/structured_dropout.csv
+10,32,complete,overlap audit,all-fixations metadata,subject and sentence overlap,code/analysis/audit_split_overlap.py,technical appendix
+11,33,complete,non-EEG controls,metadata controls,LOSO,code/analysis/run_nuisance_baseline.py,results/final_subject_level/non_eeg_controls.csv
+12,37,complete,grouped inner validation,all fixations 512x105,LOSO with complete validation subjects,code/models/run_eegnet_diagnostic_all_fixations_classification.py,results/final_subject_level/workflow12_grouped_validation_comparison.csv
+14,39,complete,repeated stimulus separation,all fixations 512x105,five repeated sentence partitions,code/models/run_original_time_repeated_sentence_partitions_loso.py,results/final_subject_level/workflow14_repeated_sentence_partitions_subjects.csv
+15,40,complete,persistent random channel loss,all fixations 512x105,LOSO participant-test-set fixed masks,code/models/run_eegnet_fixed_session_channel_loss_all_fixations.py,results/final_subject_level/workflow15_fixed_session_channel_loss_summary.csv
+16,41,complete,matched fixation ablation,first fixation and all fixations 512x105,LOSO with grouped inner validation,code/models/run_eegnet_matched_fixation_ablation.py,results/final_subject_level/workflow16_matched_fixation_paired_comparisons.csv

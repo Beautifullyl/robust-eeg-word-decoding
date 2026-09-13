@@ -1,0 +1,7 @@
+DATA AVAILABILITY
+
+The experiments use the publicly released ZuCo 2.0 Task 1 natural reading dataset, available from https://osf.io/2urht/. The repository does not redistribute source Matlab files, raw EEG recordings, extracted NPY arrays or row-level derived data.
+
+To reproduce the analysis, obtain ZuCo 2.0 from the official release above and provide the local dataset paths described in REPRODUCTION_GUIDE.txt. The data-preparation scripts validate the expected layout and generate the word-level inputs used by the model scripts.
+
+The repository includes aggregate and subject-level result tables. These tables are sufficient to check the reported means, paired differences and uncertainty intervals without redistributing participant-level EEG waveforms.
