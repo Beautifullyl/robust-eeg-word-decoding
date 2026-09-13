@@ -1,4 +1,0 @@
-PROJECT_DIR=/absolute/path/to/repository
-EEG_ENV_DIR=/absolute/path/to/python/environment
-ZUCO2_ROOT=/absolute/path/to/zuco2
-ZUCO2_MAT_DIR=/absolute/path/to/zuco2/task1 - NR/Matlab files
